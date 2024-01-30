@@ -5,8 +5,13 @@ const btnContainer = document.querySelector("#btn-container");
 const crawlContainer = document.querySelector("#opening-crawl");
 
 const getMovies = async () => {
-  const res = await axios.get("https://swapi.dev/api/films/");
-  movieButtons(res.data.results);
+  try {
+    const res = await axios.get("https://swapi.dev/api/films/");
+    movieButtons(res.data.results);
+  } catch (e) {
+    console.log("ERROR", e);
+    createError();
+  }
 };
 
 const createCrawl = (film) => {
@@ -42,4 +47,12 @@ const movieButtons = (films) => {
     }
   }
 };
+
+const createError = () => {
+  const newError = document.createElement("div");
+  newError.setAttribute("id", "error-text");
+  newError.innerText = "Error retrieving data";
+  crawlContainer.append(newError);
+};
+
 getMovies();

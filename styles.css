@@ -9,6 +9,11 @@ body {
 
 .flex {
   display: flex;
+  /* flex-wrap: wrap; */
+}
+
+.gap {
+  gap: 0.5rem;
 }
 
 .align-center {
@@ -24,7 +29,8 @@ button {
 }
 
 #movie-crawl,
-#movie-title {
+#movie-title,
+#error-text {
   color: #ffe81f;
   font-family: "News Gothic Bold";
   font-size: 32px;
